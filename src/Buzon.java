@@ -1,4 +1,3 @@
-package Caso1;
 
 import java.util.ArrayList;
 
@@ -7,6 +6,12 @@ public class Buzon
 	private ArrayList<String> mensajes = new ArrayList<String>();
 	private int tamano;
 	private int id;
+
+	public Buzon(int tamano, int id)
+	{
+		this.tamano = tamano;
+		this.id = id;
+	}
 	
 	public synchronized void recibirMensaje (String mensaje)
 	{

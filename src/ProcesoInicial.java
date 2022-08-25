@@ -1,4 +1,3 @@
-package Caso1;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,6 +27,11 @@ public class ProcesoInicial extends Thread
 		{
 			buzonInicial.recibirMensaje(mensaje);
 		}
+
+		buzonInicial.recibirMensaje("FIN");
+		buzonInicial.recibirMensaje("FIN");
+		buzonInicial.recibirMensaje("FIN");
+		
 	}
 	
 }
