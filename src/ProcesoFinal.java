@@ -14,11 +14,18 @@ public class ProcesoFinal extends Thread
 		
 	public void run()
 	{
-		String mensaje = buzonFinal.enviarMensaje();
-		while(mensaje != null)
+		int contadorFin = 3;
+		while(contadorFin!=0)
 		{
+			
+			String mensaje = buzonFinal.enviarMensaje();
+			if (mensaje.equals("FIN"))
+			{
+				contadorFin--;
+			}
 			resultado += mensaje + "\n";
 		}
+		System.out.println(resultado);
 		
 	}
 		

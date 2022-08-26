@@ -20,13 +20,24 @@ public class ProcesoIntermedio extends Thread
 	
 	public void run()
 	{
-		this.mensaje = buzonInicio.enviarMensaje();
-		
-		if (!mensaje.equals("FIN"))
+		System.out.println("Proceso intermedio " +this.nivel+ this.id + " iniciado"+" mi buzon de entrada es: " + String.valueOf(this.buzonInicio.id) + " mi buzon de salida es: " + String.valueOf(this.buzonFin.id));
+		boolean condicion =true;
+		while (condicion)
 		{
-			modificarMensaje(mensaje);
+			this.mensaje = buzonInicio.enviarMensaje();
+			
+			if (!mensaje.equals("FIN"))
+			{
+				modificarMensaje(mensaje);
+				buzonFin.recibirMensaje(this.mensaje);
+			}
+			else
+			{
+				condicion = false;
+				buzonFin.recibirMensaje(mensaje);
+			}
+			
 		}
-		buzonFin.recibirMensaje(this.mensaje);
 	}
 	
 	public void modificarMensaje(String mensaje)

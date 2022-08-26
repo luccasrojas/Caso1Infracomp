@@ -5,7 +5,7 @@ public class Buzon
 {
 	private ArrayList<String> mensajes = new ArrayList<String>();
 	private int tamano;
-	private int id;
+	public int id;
 
 	public Buzon(int tamano, int id)
 	{

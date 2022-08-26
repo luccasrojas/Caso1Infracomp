@@ -32,13 +32,13 @@ public class App {
 
         HashMap<Integer,ProcesoIntermedio> procesosIntermedios = new HashMap<Integer,ProcesoIntermedio>();
 
-        HashMap<Integer,Buzon> buzonesIntermedios = new HashMap<Integer,Buzon>();
+        HashMap<Integer,Buzon> buzonesIntermedios = new HashMap<>();
 
         // i es columnas
-        for (int i=1; i<=3;i++)
+        for (int i=1; i<=2;i++)
         {
             // j es filas
-            for (int j=1; j<=2;j++)
+            for (int j=1; j<=3;j++)
             {
                 buzonesIntermedios.put(i*10+j,new Buzon(tamanioBuzonIntermedio,i*10+j));
             }
