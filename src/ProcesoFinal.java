@@ -23,7 +23,7 @@ public class ProcesoFinal extends Thread
 			{
 				contadorFin--;
 			}
-			resultado += mensaje + "\n";
+			resultado += mensaje + ",";
 		}
 		System.out.println(resultado);
 		
