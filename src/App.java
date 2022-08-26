@@ -11,13 +11,13 @@ public class App {
         int numeroSubconjuntos;
 
 
-        System.out.println("Escriba el tamanio del buzon inicial y final");
+        System.out.println("Escriba el tamaño del buzon inicial y final: ");
         tamanioBuzonExtremos = Integer.parseInt(System.console().readLine());
 
-        System.out.println("Escriba el tamanioo de los buzones intermedios");
+        System.out.println("Escriba el tamaño de los buzones intermedios: ");
         tamanioBuzonIntermedio = Integer.parseInt(System.console().readLine());
 
-        System.out.println("Escriba el numero de subconjuntos");
+        System.out.println("Escriba el numero de subconjuntos: ");
         numeroSubconjuntos = Integer.parseInt(System.console().readLine());
 
 

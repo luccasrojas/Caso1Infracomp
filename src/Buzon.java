@@ -46,7 +46,14 @@ public class Buzon
 		notify();
 		
 		return mensaje;
-		
+	}
+	public synchronized boolean estaVacio()
+	{
+		return mensajes.size()==0;
+	}
+	public synchronized boolean estaLleno()
+	{
+		return mensajes.size()==tamano;
 	}
 	
 }

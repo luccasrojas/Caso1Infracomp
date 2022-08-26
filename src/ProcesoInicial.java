@@ -25,6 +25,10 @@ public class ProcesoInicial extends Thread
 	{
 		for (String mensaje: mensajes)
 		{
+			if (buzonInicial.estaLleno())
+			{
+				yield();
+			}
 			buzonInicial.recibirMensaje(mensaje);
 		}
 
