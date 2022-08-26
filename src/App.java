@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.concurrent.CyclicBarrier;
 
 import javax.lang.model.util.ElementScanner6;
 
@@ -34,6 +35,8 @@ public class App {
 
         HashMap<Integer,Buzon> buzonesIntermedios = new HashMap<>();
 
+        CyclicBarrier barrera = new CyclicBarrier(3);
+
         // i es columnas
         for (int i=1; i<=2;i++)
         {
@@ -50,17 +53,17 @@ public class App {
             {
                 if (i==1)
                 {
-                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonInicial, buzonesIntermedios.get(i*10+j), i, j));
+                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonInicial, buzonesIntermedios.get(i*10+j), i, j,barrera));
                 }
 
                 else if(i==3)
                 {
-                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonesIntermedios.get((i-1)*10+j), buzonFinal, i, j));
+                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonesIntermedios.get((i-1)*10+j), buzonFinal, i, j,barrera));
                 }
 
                 else 
                 {
-                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonesIntermedios.get((i-1)*10+j), buzonesIntermedios.get(i*10+j), i, j));
+                    procesosIntermedios.put(i*10 +j, new ProcesoIntermedio(buzonesIntermedios.get((i-1)*10+j), buzonesIntermedios.get(i*10+j), i, j,barrera));
                 }
 
                 procesosIntermedios.get(i*10+j).start();

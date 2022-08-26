@@ -4,7 +4,7 @@ public class ProcesoFinal extends Thread
 {
 	private Buzon buzonFinal;
 	private int numMensajes;
-	private String resultado;
+	private String resultado="";
 		
 	public ProcesoFinal( Buzon inicial)
 	{

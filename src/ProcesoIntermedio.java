@@ -1,4 +1,6 @@
 
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcesoIntermedio extends Thread
@@ -8,19 +10,19 @@ public class ProcesoIntermedio extends Thread
 	private Buzon buzonFin;
 	private int nivel;
 	private int id;
+	private CyclicBarrier barrera;
 	
-	public ProcesoIntermedio(Buzon inicio, Buzon fin, int nivel, int id)
+	public ProcesoIntermedio(Buzon inicio, Buzon fin, int nivel, int id, CyclicBarrier barrera)
 	{
 		this.buzonInicio = inicio;
 		this.buzonFin = fin;
 		this.nivel = nivel;
 		this.id = id;
+		this.barrera = barrera;
 	}
-
 	
 	public void run()
 	{
-		System.out.println("Proceso intermedio " +this.nivel+ this.id + " iniciado"+" mi buzon de entrada es: " + String.valueOf(this.buzonInicio.id) + " mi buzon de salida es: " + String.valueOf(this.buzonFin.id));
 		boolean condicion =true;
 		while (condicion)
 		{
@@ -34,6 +36,18 @@ public class ProcesoIntermedio extends Thread
 			else
 			{
 				condicion = false;
+				if (this.nivel == 3)
+				{
+					try {
+						this.barrera.await();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (BrokenBarrierException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				buzonFin.recibirMensaje(mensaje);
 			}
 			
