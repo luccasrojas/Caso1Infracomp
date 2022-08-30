@@ -16,7 +16,7 @@ public class ProcesoFinal extends Thread
 		{
 			if (buzonFinal.estaVacio())
 			{
-				yield();
+				Thread.yield();
 			}
 			String mensaje = buzonFinal.enviarMensaje();
 			if (mensaje.equals("FIN"))
